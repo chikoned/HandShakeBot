@@ -4,6 +4,16 @@ from aiogram.fsm.storage.memory import MemoryStorage
 from config import TOKEN
 from utils.db import init_db
 from handlers import common, social_circle, useful_contacts, notifications, privacy, double_handshake
+import logging
+
+logging,basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s - %(levelname)s - %(name)s - %(message)s",
+    handlers=[
+        logging.FileHandler("logs/bot.log", encoding="utf-8"),
+        logging.StreamHandler()
+    ]
+)
 
 bot = Bot(token=TOKEN)
 storage = MemoryStorage()
